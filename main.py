@@ -85,7 +85,6 @@ def plot_eda(df: pd.DataFrame) -> None:
 
 
 def detect_outliers(dataframe: pd.DataFrame, column: str):
-    """Return outlier rows and the IQR bounds for a column."""
     q1, q3 = dataframe[column].quantile([0.25, 0.75])
     iqr = q3 - q1
     lower, upper = q1 - 1.5 * iqr, q3 + 1.5 * iqr
