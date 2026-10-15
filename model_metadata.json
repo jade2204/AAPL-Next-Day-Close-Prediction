@@ -1,0 +1,60 @@
+{
+  "name": "aapl-next-close-linear-regression",
+  "version": "1.0.0",
+  "algorithm": "StandardScaler + LinearRegression",
+  "symbol": "AAPL",
+  "training_period": "2006-01-31 to 2015-08-12",
+  "train_end_date": "2015-08-12",
+  "features": [
+    "Open",
+    "High",
+    "Low",
+    "Close"
+  ],
+  "candidate_features": [
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume",
+    "Return_1d",
+    "Range_pct",
+    "Open_Close_pct",
+    "MA_5",
+    "MA_20",
+    "Volatility_5",
+    "Volume_MA_5",
+    "Volume_change"
+  ],
+  "feature_selection": {
+    "method": "RFECV",
+    "cross_validation": "TimeSeriesSplit(n_splits=5)",
+    "scoring": "neg_mean_absolute_error",
+    "selected_count": 4,
+    "candidate_count": 13,
+    "all_features_cv_mae": 0.7390787395933569,
+    "selected_features_cv_mae": 0.7356188304955065
+  },
+  "test_mae": 1.1848200590960203,
+  "test_rmse": 1.68234692664466,
+  "test_r2": 0.995162799972487,
+  "directional_accuracy_percent": 51.83333333333333,
+  "weights": {
+    "standardized_coefficients": {
+      "Open": -2.273627596279223,
+      "High": 3.022443341105184,
+      "Low": 3.1355442236498465,
+      "Close": 30.588321441232807
+    },
+    "pipeline_intercept": 49.94746561067112,
+    "effective_coefficients_original_scale": {
+      "Open": -0.06590820325641536,
+      "High": 0.08700183830060984,
+      "Low": 0.09165282359597417,
+      "Close": 0.8873757330736565
+    },
+    "effective_intercept_original_scale": 0.043083849492482784
+  },
+  "sklearn_version": "1.9.1",
+  "trained_at_utc": "2026-10-15T12:33:59.779485+00:00"
+}
